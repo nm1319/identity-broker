@@ -1,0 +1,32 @@
+[{
+    "ActionType": "GenerateOAuthTokenForClient",
+    "ID": "1",
+    "IdentityHandlerConfig": {
+        "DashboardCredential": "1078cbb21a114f896cde51fea825bb40",
+        "DisableOneTokenPerAPI": false,
+        "OAuth": {
+            "APIListenPath": "oauth-api",
+            "BaseAPIID": "8b92e84952df4cf77daa5fc8eed4bdd7",
+            "ClientId": "70ed20a295644082aa8cf6cd46ed63be",
+            "RedirectURI": "http://127.0.0.1:8000",
+            "ResponseType": "token",
+            "Secret": "YmQ3Y2NiODYtNzAyZS00NmQxLTk1ZWQtYTNjYzBjOTQwMTFm",
+            "NoRedirect": false
+        }
+    },
+    "MatchedPolicyID": "6566f0310a878c00016a6660",
+    "OrgID": "6565cadc0a878c00016a6656",
+    "ProviderConfig": {
+        "CallbackBaseURL": "https://e2e3-2405-201-22-7333-15ac-eaf7-9371-182d.ngrok-free.app",
+        "FailureRedirect": "http://127.0.0.1:8000/?fail=true",
+        "UseProviders": [{
+            "Key": "369805522738-lnvj4u0iaqckg7kr746tg6oa3l98g414.apps.googleusercontent.com",
+            "Name": "gplus",
+            "Secret": "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"
+        }]
+    },
+    "ProviderName": "SocialProvider",
+    "ReturnURL": "",
+    "Type": "redirect"
+}
+]

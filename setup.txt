@@ -1,0 +1,48 @@
+# Set up Tyk gateway (free trial for 2 weeks)
+Goto: https://tyk.io/ --> Get Started --> Install on your infrastructure --> provide your email
+Get the license key (2 weeks - 28th Nov - 12th Dec)
+# Below command will ask for license key, provide the same from your email
+git clone https://github.com/TykTechnologies/tyk-pro-docker-demo && cd tyk-pro-docker-demo && ./up.sh
+Please sign in at http://localhost:3000
+user: dev@tyk.io
+pw: topsecret
+Your Tyk Gateway is found at http://localhost:8080
+Read docmentation at: https://tyk.io/docs/
+
+# Create the profiles.json and tib.conf files manually.
+# The profiles.json file outlines which identity providers to match to which handlers 
+# and what actions to perform. The entries in this file encapsulate the activity for a 
+# single endpoint based on the ID and provider name.
+# Get the below from Tyk dashboard when you start your subscription
+Tyk Dashboard API Access Credentials: 1078cbb21a114f896cde51fea825bb40
+Organisation ID : 6565cadc0a878c00016a6656
+# Create API and Policy in Tyk dashboard and get the below details.
+# Check below documentation and videos on how to create the same:
+# https://www.youtube.com/watch?v=mQDdarho_QM
+# https://www.youtube.com/@TykAPIM
+PolicyID: 6566f0310a878c00016a6660
+ClientID: 70ed20a295644082aa8cf6cd46ed63be
+Secret: YmQ3Y2NiODYtNzAyZS00NmQxLTk1ZWQtYTNjYzBjOTQwMTFm
+API ID: 8b92e84952df4cf77daa5fc8eed4bdd7
+API Path: http://localhost:8080/oauth-api/
+Redirect URI: https://e2e3-2405-201-22-7333-15ac-eaf7-9371-182d.ngrok-free.app/auth/1/google/callback
+
+# Login to your Google Cloud console, and create a new project
+https://console.cloud.google.com/cloud-resource-manager
+# Generate OAuth Credentials, detailed steps given at https://github.com/buzzfeed/sso/blob/main/docs/google_provider_setup.md
+https://console.cloud.google.com/apis/credentials/
+Google Client ID: 369805522738-lnvj4u0iaqckg7kr746tg6oa3l98g414.apps.googleusercontent.com
+Google Client Secret: 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
+
+# Set up Tyk identity broker
+# make directory (say mytyk)
+cd mytyk
+# copy profiles.json and tib.conf to this directory
+# run below command to start tyk identity broker
+docker run -p 3010:3010 -v $(pwd)/tib.conf:/opt/tyk-identity-broker/tib.conf -v $(pwd)/profiles.json:/opt/tyk-identity-broker/profiles.json tykio/tyk-identity-broker
+
+# Set up ngrok (globally distributed reverse proxy)
+# Website: https://ngrok.com/download
+# MyDashboard: https://dashboard.ngrok.com/get-started/your-authtoken
+#Running the Software:
+ngrok http 5000 
