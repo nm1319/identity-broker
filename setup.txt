@@ -10,6 +10,7 @@ Your Tyk Gateway is found at http://localhost:8080
 Read docmentation at: https://tyk.io/docs/
 
 # Create the profiles.json and tib.conf files manually.
+# https://github.com/TykTechnologies/tyk-identity-broker/wiki/Authenticate-a-user-for-API-access-using-Github-OAuth
 # The profiles.json file outlines which identity providers to match to which handlers 
 # and what actions to perform. The entries in this file encapsulate the activity for a 
 # single endpoint based on the ID and provider name.
@@ -46,3 +47,6 @@ docker run -p 3010:3010 -v $(pwd)/tib.conf:/opt/tyk-identity-broker/tib.conf -v 
 # MyDashboard: https://dashboard.ngrok.com/get-started/your-authtoken
 #Running the Software:
 ngrok http 5000 
+
+
+# How to start?
